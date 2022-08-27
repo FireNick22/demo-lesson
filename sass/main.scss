@@ -48,11 +48,20 @@ ol {
 
     &__text {
         margin-top: 20px;
+        margin-bottom: 32px;
     }
     &__feedback {
         margin-top: 32px;
     }
+}
 
+.feedback {
+    @media screen and (min-width: 768px) {
+        display: flex;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin: -16px;
+    }
 }
 
 .feedback__item {
@@ -63,48 +72,56 @@ ol {
     border-top-right-radius: 29px;
     border-bottom-right-radius: 29px;
     border-bottom-left-radius: 29px;
-
-    @media screen and (min-width: 768px) {
-        height: 244px;
-        padding: 12px;
-    }
-  
+    
     &:not(:first-child) {
         @media screen and (max-width: 767px) {
             margin-top: 24px;
         }
-        @media screen and (min-width: 768px) {
-            margin-left: 32px;
-        }
-        @media screen and (min-width: 1280px) {
-            margin-left: 139px;
+    }
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        width: calc((100% - 2 * 16px) / 2);
+        height: 244px;
+        padding: 12px;
+        margin: 16px;
+        
+        &:nth-last-child(-n + 2) {
+            margin-bottom: 0px;
         }
     }
+
     @media screen and (min-width: 1280px) {
         width: 501px;
         height: 227px;
         padding: 14px;
-    }
+        margin: 0px;
+
+        &:not(:first-child) {
+            @media screen and (min-width: 1280px) {
+                margin-left: 139px;
+            }
+        }
+    }  
 }
+    
+// &:not(:first-child) {
+//     @media screen and (max-width: 767px) {
+//         margin-top: 24px;
+//     }
+//     @media screen and (min-width: 768px) {
+//         margin-left: 32px;
+//     }
+//     @media screen and (min-width: 1280px) {
+//         margin-left: 139px;
+//     }
 
 .feedback__rating {
     display: flex;
     width: 101px;
     height: 16px;
     justify-content: space-between;
-}
-
-.feedback {
-    @media screen and (min-width: 768px) {
-        display: flex;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .feedback__item {
-      display: flex; 
-      flex-direction: column; 
-    }
 }
 
 .feedback__text {
